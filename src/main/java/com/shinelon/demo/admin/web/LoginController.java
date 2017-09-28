@@ -14,16 +14,22 @@ import com.shinelon.demo.admin.bean.Msg;
 public class LoginController {
     private static final Logger logger = LoggerFactory.getLogger(TestController.class);
 
+    @RequestMapping("/")
+    public String index() {
+        logger.debug("login success");
+        return "index";
+    }
+
     @RequestMapping("/login")
     public String login(HttpServletRequest request) {
         logger.debug("login...");
         return "login";
     }
 
-    @RequestMapping("/")
+    @RequestMapping("/success")
     public String success(HttpServletRequest request, Model model) {
-        logger.debug("login success");
-        Msg msg = new Msg("测试标题", "普通用户测试内容", "额外信息，只对管理员显示");
+        logger.debug("Weclome...");
+        Msg msg = new Msg("欢迎登陆", "通用消息", "额外信息，只对管理员显示");
         model.addAttribute("msg", msg);
         return "success";
     }
