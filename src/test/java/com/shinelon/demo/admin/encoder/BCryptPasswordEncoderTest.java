@@ -4,9 +4,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.shinelon.demo.admin.utils.MD5Util;
 
-/**
- * Created by yangyibo on 17/3/2.
- */
 public class BCryptPasswordEncoderTest {
     public static void main(String[] args) {
 
