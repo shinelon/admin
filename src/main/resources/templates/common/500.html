@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+
+    <title> - 500错误</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+
+    <link rel="shortcut icon" href="../../static/hAdmin/favicon.ico" th:href="@{/static/hAdmin/favicon.ico}"/> 
+    <link rel="stylesheet" href="../../static/hAdmin/css/bootstrap.min.css?v=3.3.6" th:href="@{/static/hAdmin/css/bootstrap.min.css}"  />
+    <link rel="stylesheet" href="../../static/hAdmin/css/font-awesome.css?v=4.4.0" th:href="@{/static/hAdmin/css/font-awesome.css}" />
+    <link rel="stylesheet" href="../../static/hAdmin/css/animate.css" th:href="@{/static/hAdmin/css/animate.css}" />
+    <link rel="stylesheet" href="../../static/hAdmin/css/style.css?v=4.1.0" th:href="@{/static/hAdmin/css/style.css}" />
+
+
+</head>
+
+<body class="gray-bg">
+
+
+    <div class="middle-box text-center animated fadeInDown">
+        <h1>500</h1>
+        <h3 class="font-bold">服务器内部错误</h3>
+
+        <div class="error-desc">
+            服务器好像出错了...
+            <br/>您可以返回主页看看
+            <br/><a href="../success.html" th:href="@{/success}" class="btn btn-primary m-t">主页</a>
+        </div>
+    </div>
+
+    <!-- 全局js -->
+        <script src="../../static/hAdmin/js/jquery.min.js?v=2.1.4" th:src="@{/static/hAdmin/js/jquery.min.js}"></script>
+    <script src="../../static/hAdmin/js/bootstrap.min.js?v=3.3.6" th:src="@{/static/hAdmin/js/bootstrap.min.js}"></script>
+
+    
+    
+
+</body>
+
+</html>
