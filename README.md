@@ -4,6 +4,10 @@
 
 ## todo list
 
-- 加密密码
 - rest 验证
 - ...
+
+## done list
+
+- 基础校验功能
+- BCryptPasswordEncoder 密码加密
