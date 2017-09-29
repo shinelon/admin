@@ -13,3 +13,5 @@
 - 基础登陆功能
 - BCryptPasswordEncoder 密码加密
 - 统一404 500页面处理
+- 统一日志AOP
+- ...
