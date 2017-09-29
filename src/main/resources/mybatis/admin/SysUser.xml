@@ -42,5 +42,18 @@
             on sru.role_id = r.id
         where username = #{username}
     </select>
+    
+    <select id="findAllByPage" parameterType="String" resultMap="BaseResultMap">
+        select
+            u.id AS id,
+            u.username AS username,
+            u.mobile AS mobile,
+            u.password AS password,
+            u.email AS email,
+            u.status AS status,
+            u.update_time AS update_time,
+            u.create_time AS create_time
+        from sys_user u
+    </select>
 
 </mapper>

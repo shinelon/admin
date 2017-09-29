@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="utf-8"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+
+
+    <title> - 用户列表</title>
+    <meta name="keywords" content=""></meta>
+    <meta name="description" content=""></meta>
+
+    <link rel="shortcut icon" href="../../static/hAdmin/favicon.ico" th:href="@{/static/hAdmin/favicon.ico}"/> 
+    <link rel="stylesheet" href="../../static/hAdmin/css/bootstrap.min.css?v=3.3.6" th:href="@{/static/hAdmin/css/bootstrap.min.css}"  />
+    <link rel="stylesheet" href="../../static/hAdmin/css/font-awesome.css?v=4.4.0" th:href="@{/static/hAdmin/css/font-awesome.css}" />
+    <link rel="stylesheet" href="../../static/hAdmin/css/animate.css" th:href="@{/static/hAdmin/css/animate.css}" />
+    <link rel="stylesheet" href="../../static/hAdmin/css/style.css?v=4.1.0" th:href="@{/static/hAdmin/css/style.css}" />
+    <link href="../../static/hAdmin/css/plugins/bootstrap-table/bootstrap-table.min.css" th:href="@{/static/hAdmin/css/plugins/bootstrap-table/bootstrap-table.min.css}" rel="stylesheet" />
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+    <!-- 全局js -->
+    <script src="../../static/hAdmin/js/jquery.min.js?v=2.1.4" th:src="@{/static/hAdmin/js/jquery.min.js}"></script>
+    <script src="../../static/hAdmin/js/bootstrap.min.js?v=3.3.6" th:src="@{/static/hAdmin/js/bootstrap.min.js}"></script>
+    <!-- Bootstrap table 版本兼容-->
+    <script src="../../static/hAdmin/js/plugins/bootstrap-table/bootstrap-table.min.js" th:src="@{/static/hAdmin/js/plugins/bootstrap-table/bootstrap-table.min.js}"></script>
+<!--     <script src="../../static/hAdmin/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js" th:src="@{/static/hAdmin/js/plugins/bootstrap-table/bootstrap-table-mobile.min.js}"></script> -->
+    <script src="../../static/hAdmin/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js" th:src="@{/static/hAdmin/js/plugins/bootstrap-table/locale/bootstrap-table-zh-CN.min.js}"></script>
+    <script src="../../static/hAdmin/js/plugins/layer/layer.min.js" th:src="@{/static/hAdmin/js/plugins/layer/layer.min.js}"></script>
+    <script src="../../static/js/user/list.js" th:src="@{/static/js/user/list.js}"></script>
+</head>
+
+<body class="gray-bg">
+	<div class="wrapper wrapper-content animated fadeInRight">
+		<div class="ibox float-e-margins">
+			<div class="ibox-title">
+				<h5>用户列表</h5>
+			</div>
+			<div class="ibox-content">
+				<div class="row row-lg">
+					<div class="col-sm-12">
+					   <div class="example-wrap">
+                            <h4 class="example-title"></h4>
+                            <div class="example">
+<!--                                 <table id="userTable" data-toggle="table"  data-card-view="true" data-mobile-responsive="true" -->
+<!--                                    data-height="300" data-ajax="ajaxListPage" -->
+<!--                                    data-search="false" data-page-size="5" -->
+<!--                                    data-striped="true" sortOrder="desc" data-side-pagination="server" data-pagination="true"> -->
+                                  <table id="userTable" data-toggle="table" 
+                                   data-height="300" data-ajax="ajaxListPage"
+                                   data-search="false" data-page-size="5"
+                                   sortOrder="desc" data-side-pagination="server" data-pagination="true">
+                                    <thead>
+                                        <tr>
+                                            <th data-field="id" data-halign= "center" data-align = "center">Id</th>
+                                            <th data-field="mobile" data-halign= "center" data-align = "center">电话号码</th>
+                                            <th data-field="username" data-halign= "center" data-align = "center">名称</th>
+                                            <th data-field="email" data-halign= "center" data-align = "center">邮箱</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>					
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	
+    <!-- Peity -->
+<!--     <script src="../../static/hAdmin/js/demo/bootstrap-table-demo.js" th:src="@{/static/hAdmin/js/demo/bootstrap-table-demo.js}"></script> -->
+</body>
+<script type="text/javascript">
+var $userTable = $('#userTable');
+function ajaxListPage(params){
+    console.info(params);   
+    $.ajax({
+        type : 'POST',
+        url : '../user/listPage',
+        data : params.data,
+        success : function(result){
+            console.info(result);            
+            if(result.errorCode!=0){
+                layer.msg('提交失败！请稍后再试');
+                return;
+            }else{
+                params.success(result.returnData);
+                return;
+            }
+        },
+        error:function(result){
+            layer.msg('提交失败！请检查网络后再试');
+            return false;
+        },
+        dataType : "json"
+    });
+    
+}
+
+</script>
+</html>
