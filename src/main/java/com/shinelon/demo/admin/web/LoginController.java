@@ -20,12 +20,35 @@ public class LoginController {
         return "index";
     }
 
+    /***
+     * 登录页面跳转
+     *
+     * @param request
+     * @return
+     */
     @RequestMapping("/login")
     public String login(HttpServletRequest request) {
         logger.debug("login...");
         return "login";
     }
 
+    /***
+     * 注册页面跳转
+     *
+     * @return
+     */
+    @RequestMapping("/register")
+    public String register() {
+        return "user/register";
+    }
+
+    /***
+     * 登录成功页面
+     *
+     * @param request
+     * @param model
+     * @return
+     */
     @RequestMapping("/success")
     public String success(HttpServletRequest request, Model model) {
         logger.debug("Weclome...");

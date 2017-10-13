@@ -1,13 +1,18 @@
 package com.shinelon.demo.admin.web;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.shinelon.demo.admin.bean.PageBean;
+import com.shinelon.demo.admin.bean.RegisterBean;
 import com.shinelon.demo.admin.entity.SysUser;
 import com.shinelon.demo.admin.service.UserService;
 import com.shinelon.demo.admin.utils.JsonFormatUtil;
@@ -41,6 +46,24 @@ public class UserController {
         logger.debug("parms:{}", parms);
         PageBean<SysUser> page = userService.listPage(parms);
         return JsonFormatUtil.getSuccessJson(page).toJSONString();
+    }
+
+    /***
+     * 注册新用户
+     *
+     * @return
+     */
+    @RequestMapping("/register")
+    public String register(Model model, HttpServletRequest request, RegisterBean registerBean) {
+        logger.info("register:{}", registerBean);
+        String checkRet = userService.checkRegisterBean(registerBean);
+        if (!StringUtils.isEmpty(checkRet)) {
+            model.addAttribute("error", checkRet);
+            return "/user/register";
+        }
+        userService.registerUser(registerBean);
+        model.addAttribute("success", "注册成功！");
+        return "/user/register";
     }
 
     /***
