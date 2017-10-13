@@ -14,4 +14,5 @@
 - BCryptPasswordEncoder 密码加密
 - 统一404 500页面处理
 - 统一日志AOP
-- ...
+- thymeleaf 内联JS
+- 用户基础信息修改
