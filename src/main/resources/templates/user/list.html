@@ -40,19 +40,21 @@
 				<div class="row row-lg">
 					<div class="col-sm-12">
 					   <div class="example-wrap">
-                            <h4 class="example-title"></h4>
+                            <div class="example-title" sec:authorize="hasRole('ROLE_ADMIN')">
+                                <button type="button" class="btn btn-w-m btn-success" id="add">新增</button>
+                                <button type="button" class="btn btn-w-m btn-info" id="modify">修改</button>
+                                <button type="button" class="btn btn-w-m btn-primary" id="disable">禁用</button>
+                            </div>
                             <div class="example">
-<!--                                 <table id="userTable" data-toggle="table"  data-card-view="true" data-mobile-responsive="true" -->
-<!--                                    data-height="300" data-ajax="ajaxListPage" -->
-<!--                                    data-search="false" data-page-size="5" -->
-<!--                                    data-striped="true" sortOrder="desc" data-side-pagination="server" data-pagination="true"> -->
                                   <table id="userTable" data-toggle="table" 
                                    data-height="300" data-ajax="ajaxListPage"
-                                   data-search="false" data-page-size="5"
+                                   data-search="false" data-page-size="5" data-click-to-select="true"
                                    sortOrder="desc" data-side-pagination="server" data-pagination="true">
                                     <thead>
                                         <tr>
+                                            <th data-field="flag" data-radio="true"></th>
                                             <th data-field="id" data-halign= "center" data-align = "center">Id</th>
+                                            <th data-field="status" data-halign= "center" data-align = "center" data-formatter="statusFormatter">状态</th>
                                             <th data-field="mobile" data-halign= "center" data-align = "center">电话号码</th>
                                             <th data-field="username" data-halign= "center" data-align = "center">名称</th>
                                             <th data-field="email" data-halign= "center" data-align = "center">邮箱</th>
@@ -67,37 +69,84 @@
 		</div>
 	</div>
 
-
-	
-    <!-- Peity -->
-<!--     <script src="../../static/hAdmin/js/demo/bootstrap-table-demo.js" th:src="@{/static/hAdmin/js/demo/bootstrap-table-demo.js}"></script> -->
+<div id="userInfoModal" class="modal fade" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-6 b-r">
+                            <h3 class="m-t-none m-b">修改用户信息</h3>
+                            <form role="form">
+                                <div class="form-group">
+                                    <label>ID：</label><label id="id-modal"></label>
+                                </div>
+                                <div class="form-group">
+                                    <label>名称：</label>
+                                    <input id="username-modal" class="form-control"/>
+                                </div>
+                                <div class="form-group">
+                                    <label>电话号码：</label>
+                                    <input id="mobile-modal" class="form-control"/>
+                                </div>
+                                <div class="form-group">
+                                    <label>邮箱：</label>
+                                    <input id="email-modal" class="form-control"/>
+                                </div>
+                            </form>
+                            
+                        </div>
+                        <div class="col-sm-6">
+                            <form role="form">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label">状态：</label>
+                                    <div class="col-sm-6">
+	                                    <select id="status-select" class="form-control" style="height:13%">
+									      <option value="0">无效</option>
+									      <option value="1">有效</option>
+									    </select>
+									</div>
+                                </div>
+                            </form>
+                            <p class="text-center">
+                                <i class="fa fa-sign-in big-icon"></i>
+                            </p>
+                            <p>
+                                <button id="save" class="btn btn-primary " type="button"><i class="fa fa-check"></i>&nbsp;保存</button>
+                                <button id="reset" class="btn btn-info " type="button"><i class="fa fa-paste"></i> 重置密码</button>
+                                <button id="cancel" class="btn btn-warning " type="button"><i class="fa fa-warning"></i> <span class="bold">取消</span></button>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 <script type="text/javascript">
-var $userTable = $('#userTable');
-function ajaxListPage(params){
-    console.info(params);   
-    $.ajax({
-        type : 'POST',
-        url : '../user/listPage',
-        data : params.data,
-        success : function(result){
-            console.info(result);            
-            if(result.errorCode!=0){
-                layer.msg('提交失败！请稍后再试');
-                return;
-            }else{
-                params.success(result.returnData);
-                return;
-            }
-        },
-        error:function(result){
-            layer.msg('提交失败！请检查网络后再试');
-            return false;
-        },
-        dataType : "json"
-    });
-    
-}
+	var $userTable = $('#userTable');
+	function ajaxListPage(params) {
+		console.info(params);
+		$.ajax({
+			type : 'POST',
+			url : '../user/listPage',
+			data : params.data,
+			success : function(result) {
+				console.info(result);
+				if (result.errorCode != 0) {
+					layer.msg('提交失败！请稍后再试');
+					return;
+				} else {
+					params.success(result.returnData);
+					return;
+				}
+			},
+			error : function(result) {
+				layer.msg('提交失败！请检查网络后再试');
+				return false;
+			},
+			dataType : "json"
+		});
 
+	}
 </script>
 </html>
