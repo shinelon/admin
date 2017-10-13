@@ -29,6 +29,11 @@ public class UserServiceImpl implements UserService {
         return page;
     }
 
+    @Override
+    public void updateSysUserInfo(SysUser sysUser) throws Exception {
+        sysUserMapper.updateById(sysUser);
+    }
+
     private Page<SysUser> getPage(String order, Integer offset, Integer limit) {
         int offsetInt = offset.intValue();
         int limitInt = limit.intValue();

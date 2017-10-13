@@ -31,7 +31,7 @@ public class UserController {
 
     /**
      * 分页查询用户数据
-     * 
+     *
      * @param parms
      * @return
      */
@@ -41,5 +41,22 @@ public class UserController {
         logger.debug("parms:{}", parms);
         PageBean<SysUser> page = userService.listPage(parms);
         return JsonFormatUtil.getSuccessJson(page).toJSONString();
+    }
+
+    /***
+     * 修改用户基本信息（不包含密码）
+     *
+     * @return
+     */
+    @RequestMapping("/update")
+    @ResponseBody
+    public String updateSysUserInfo(SysUser sysUser) {
+        try {
+            userService.updateSysUserInfo(sysUser);
+        } catch (Exception e) {
+            logger.error(e.getMessage(), e);
+            return JsonFormatUtil.getFailureJson(e.getMessage()).toJSONString();
+        }
+        return JsonFormatUtil.getSuccessJson().toJSONString();
     }
 }

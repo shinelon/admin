@@ -7,7 +7,7 @@ $(function(){
 function init(){
 	$("#add").on("click",add);
 	$("#modify").on("click",modify);
-	$("#disable").on("click",disable);
+//	$("#disable").on("click",disable);
 	$("#save").on("click",save);
 	$("#reset").on("click",resetPassword);
 	$("#cancel").on("click",function(){$('#userInfoModal').modal('toggle')});
@@ -39,7 +39,38 @@ function disable(){
 	alert("disable");
 }
 function save(){
-	alert("alert save");
+	var updateData={};
+	updateData["id"]=$('#id-modal').text();
+//	updateData["username"]=$('#username-modal').val();
+	updateData["mobile"]=$('#mobile-modal').val();
+	updateData["email"]=$('#email-modal').val();
+	updateData["status"]=$('#status-select').val();
+	console.info(updateData)
+	if(!updateData.id){
+		layer.msg('获取数据失败，请刷新后重试');
+		return false;
+	}
+	
+	$.ajax({
+		type : 'POST',
+		url : contextPath+'/user/update',
+		data : updateData,
+		success : function(result) {
+			console.info(result);
+			if (result.errorCode != 0) {
+				layer.msg('提交失败！请稍后再试');
+				return;
+			} else {
+				location=location;
+				return;
+			}
+		},
+		error : function(result) {
+			layer.msg('提交失败！请检查网络后再试');
+			return false;
+		},
+		dataType : "json"
+	});
 }
 function resetPassword(){
 	alert("alert resetPassword");

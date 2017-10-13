@@ -17,4 +17,12 @@ public interface UserService {
      * @return
      */
     PageBean<SysUser> listPage(PageBean<SysUser> page);
+
+    /***
+     * 修改用户信息（不包含密码）
+     * 
+     * @param sysUser
+     * @throws Exception
+     */
+    void updateSysUserInfo(SysUser sysUser) throws Exception;
 }

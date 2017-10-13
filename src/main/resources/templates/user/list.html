@@ -43,7 +43,7 @@
                             <div class="example-title" sec:authorize="hasRole('ROLE_ADMIN')">
                                 <button type="button" class="btn btn-w-m btn-success" id="add">新增</button>
                                 <button type="button" class="btn btn-w-m btn-info" id="modify">修改</button>
-                                <button type="button" class="btn btn-w-m btn-primary" id="disable">禁用</button>
+<!--                                 <button type="button" class="btn btn-w-m btn-primary" id="disable">禁用</button> -->
                             </div>
                             <div class="example">
                                   <table id="userTable" data-toggle="table" 
@@ -56,7 +56,7 @@
                                             <th data-field="id" data-halign= "center" data-align = "center">Id</th>
                                             <th data-field="status" data-halign= "center" data-align = "center" data-formatter="statusFormatter">状态</th>
                                             <th data-field="mobile" data-halign= "center" data-align = "center">电话号码</th>
-                                            <th data-field="username" data-halign= "center" data-align = "center">名称</th>
+                                            <th data-field="username" data-halign= "center" data-align = "center">登录名称</th>
                                             <th data-field="email" data-halign= "center" data-align = "center">邮箱</th>
                                         </tr>
                                     </thead>
@@ -81,8 +81,8 @@
                                     <label>ID：</label><label id="id-modal"></label>
                                 </div>
                                 <div class="form-group">
-                                    <label>名称：</label>
-                                    <input id="username-modal" class="form-control"/>
+                                    <label>登录名称：</label>
+                                    <input id="username-modal" class="form-control" disabled="true"/>
                                 </div>
                                 <div class="form-group">
                                     <label>电话号码：</label>
@@ -122,13 +122,16 @@
         </div>
     </div>
 </body>
+<script th:inline="javascript">
+    var contextPath = /*[[${#ctx.servletContext.contextPath}]]*/ null;
+</script>
 <script type="text/javascript">
 	var $userTable = $('#userTable');
 	function ajaxListPage(params) {
 		console.info(params);
 		$.ajax({
 			type : 'POST',
-			url : '../user/listPage',
+			url : contextPath+'/user/listPage',
 			data : params.data,
 			success : function(result) {
 				console.info(result);
