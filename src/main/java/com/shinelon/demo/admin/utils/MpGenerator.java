@@ -40,7 +40,7 @@ public class MpGenerator {
         gc.setActiveRecord(true);
         gc.setEnableCache(false);// XML 二级缓存
         gc.setBaseResultMap(true);// XML ResultMap
-        gc.setBaseColumnList(false);// XML columList
+        gc.setBaseColumnList(true);// XML columList
         gc.setAuthor("shinelon");
 
         // 自定义文件命名，注意 %s 会自动填充表实体属性！
