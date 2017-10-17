@@ -16,8 +16,8 @@ import com.shinelon.demo.admin.entity.SysRole;
 import com.shinelon.demo.admin.entity.SysUser;
 import com.shinelon.demo.admin.mapper.SysUserMapper;
 
-public class CustomUserService implements UserDetailsService {
-    private static final Logger logger = LoggerFactory.getLogger(CustomUserService.class);
+public class CustomUserServiceImpl implements UserDetailsService {
+    private static final Logger logger = LoggerFactory.getLogger(CustomUserServiceImpl.class);
 
     @Autowired
     private SysUserMapper sysUserMapper;

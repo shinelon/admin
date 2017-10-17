@@ -9,7 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import com.shinelon.demo.admin.security.CustomUserService;
+import com.shinelon.demo.admin.security.CustomUserServiceImpl;
 
 @Configuration
 @EnableWebSecurity
@@ -23,14 +23,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().authorizeRequests().antMatchers("/register").permitAll().antMatchers("/user/register")
-                .permitAll().antMatchers("/static/**").permitAll().anyRequest().authenticated() // 任何请求,登录后可以访问
-                .and().formLogin().loginPage("/login").failureUrl("/login?error").permitAll() // 登录页面用户任意访问
-                .and().logout().permitAll().and().headers().frameOptions().disable(); // 注销行为任意访问
+                .permitAll().antMatchers("/static/**").permitAll().anyRequest().authenticated().and().formLogin()
+                .loginPage("/login").failureUrl("/login?error").permitAll().and().logout().permitAll().and().headers()
+                .frameOptions().disable();
 
     }
 
     @Bean
     UserDetailsService customUserService() { // 注册UserDetailsService 的bean
-        return new CustomUserService();
+        return new CustomUserServiceImpl();
     }
 }

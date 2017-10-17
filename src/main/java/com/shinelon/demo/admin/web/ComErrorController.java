@@ -14,6 +14,8 @@ public class ComErrorController implements ErrorController {
     private static final String ERROR_PATH = "/error";
     private static final String ERROR_PATH_500 = "/common/500";
     private static final String ERROR_PATH_404 = "/common/404";
+    private static final int ERROR_CODE_404 = 404;
+    private static final int ERROR_CODE_500 = 500;
 
     @Override
     public String getErrorPath() {
@@ -22,10 +24,10 @@ public class ComErrorController implements ErrorController {
 
     @RequestMapping(value = ERROR_PATH)
     public String handleError(HttpServletResponse response) {
-        if (response.getStatus() == 404) {
+        if (response.getStatus() == ERROR_CODE_404) {
             return ERROR_PATH_404;
         }
-        if (response.getStatus() == 500) {
+        if (response.getStatus() == ERROR_CODE_500) {
             return ERROR_PATH_500;
         }
         return ERROR_PATH_500;

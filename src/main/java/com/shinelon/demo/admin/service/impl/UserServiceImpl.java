@@ -53,7 +53,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public void registerUser(RegisterBean registerBean) {
         SysUser entity = new SysUser();
         entity.setUsername(registerBean.getUsername());

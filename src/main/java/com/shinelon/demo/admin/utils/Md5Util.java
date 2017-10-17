@@ -2,7 +2,7 @@ package com.shinelon.demo.admin.utils;
 
 import java.security.MessageDigest;
 
-public class MD5Util {
+public class Md5Util {
     private static final String SALT = "salt";
 
     public static String encode(String password) {
@@ -11,8 +11,8 @@ public class MD5Util {
     }
 
     public static void main(String[] args) {
-        System.out.println(MD5Util.encode("abel"));
-        System.out.println(MD5Util.encode("admin"));
+        System.out.println(Md5Util.encode("abel"));
+        System.out.println(Md5Util.encode("admin"));
     }
 
     public static String processEncode(String password) {
