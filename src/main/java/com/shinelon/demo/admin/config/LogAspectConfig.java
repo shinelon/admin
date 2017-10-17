@@ -61,6 +61,7 @@ public class LogAspectConfig {
      */
     @Before("webLog()")
     public void doBefore(JoinPoint joinPoint) throws Throwable {
+        startTime.remove();
         startTime.set(System.currentTimeMillis());
 
         // 接收到请求，记录请求内容

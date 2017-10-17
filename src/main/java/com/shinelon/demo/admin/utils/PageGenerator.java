@@ -24,7 +24,7 @@ public class PageGenerator {
         String templatePath = "/templates/htmlvm/page.html.vm";
         String outputFile = "D://mptest//demo.html";
         PageGenerator pg = new PageGenerator();
-        Map<String, String> parms = new HashMap<>();
+        Map<String, String> parms = new HashMap<>(5);
         parms.put("title", "demo");
         pg.generatorPage(parms, outputFile, templatePath);
     }

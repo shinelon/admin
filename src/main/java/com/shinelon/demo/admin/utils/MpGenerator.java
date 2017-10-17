@@ -38,9 +38,12 @@ public class MpGenerator {
         gc.setOutputDir("D://mptest");
         gc.setFileOverride(true);
         gc.setActiveRecord(true);
-        gc.setEnableCache(false);// XML 二级缓存
-        gc.setBaseResultMap(true);// XML ResultMap
-        gc.setBaseColumnList(true);// XML columList
+        // XML 二级缓存
+        gc.setEnableCache(false);
+        // XML ResultMap
+        gc.setBaseResultMap(true);
+        // XML columList
+        gc.setBaseColumnList(true);
         gc.setAuthor("shinelon");
 
         // 自定义文件命名，注意 %s 会自动填充表实体属性！
@@ -74,8 +77,10 @@ public class MpGenerator {
         // strategy.setCapitalMode(true);// 全局大写命名 ORACLE 注意
         // strategy.setTablePrefix(new String[] { "tlog_", "tsys_" });//
         // 此处可以修改为您的表前缀NamingStrategy.underline_to_camel
-        strategy.setNaming(NamingStrategy.underline_to_camel);// 表名生成策略
-        strategy.setInclude(new String[] { "sys_role", "sys_user", "sys_user_role" }); // 需要生成的表
+        // 表名生成策略
+        strategy.setNaming(NamingStrategy.underline_to_camel);
+        // 需要生成的表
+        strategy.setInclude(new String[] { "sys_role", "sys_user", "sys_user_role" });
         // strategy.setExclude(new String[]{"test"}); // 排除生成的表
         // 自定义实体父类
         // strategy.setSuperEntityClass("com.baomidou.demo.TestEntity");
@@ -107,7 +112,7 @@ public class MpGenerator {
         InjectionConfig cfg = new InjectionConfig() {
             @Override
             public void initMap() {
-                Map<String, Object> map = new HashMap<String, Object>();
+                Map<String, Object> map = new HashMap<String, Object>(5);
                 map.put("abc", getConfig().getGlobalConfig().getAuthor() + "-mp");
                 setMap(map);
             }

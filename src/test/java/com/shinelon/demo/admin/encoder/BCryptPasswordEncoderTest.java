@@ -17,10 +17,10 @@ public class BCryptPasswordEncoderTest {
         }
 
         System.out.println("------------华丽的分割线-----------------------");
-        String Md5Password = MD5Util.encode("abel");
-        System.out.println("Md5Password:  " + Md5Password);
-        System.out.println("encoder:  " + encoder.encode(Md5Password));
-        if (encoder.matches(Md5Password, "$2a$10$37MXEfzlbtC6QSsRTlRhIOmykMRJtO5mU8Y.yiJBjy1x4WYWFR5gG")) {
+        String md5Password = MD5Util.encode("abel");
+        System.out.println("Md5Password:  " + md5Password);
+        System.out.println("encoder:  " + encoder.encode(md5Password));
+        if (encoder.matches(md5Password, "$2a$10$37MXEfzlbtC6QSsRTlRhIOmykMRJtO5mU8Y.yiJBjy1x4WYWFR5gG")) {
             System.out.println("Md5Password: true");
         }
 
