@@ -2,6 +2,11 @@ package com.shinelon.demo.admin.utils;
 
 import java.security.MessageDigest;
 
+/***
+ *
+ * @author syq
+ *
+ */
 public class Md5Util {
     private static final String SALT = "salt";
 

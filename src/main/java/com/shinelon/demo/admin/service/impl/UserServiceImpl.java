@@ -22,6 +22,11 @@ import com.shinelon.demo.admin.mapper.SysUserMapper;
 import com.shinelon.demo.admin.mapper.SysUserRoleMapper;
 import com.shinelon.demo.admin.service.UserService;
 
+/***
+ *
+ * @author syq
+ *
+ */
 @Service
 public class UserServiceImpl implements UserService {
     private static final Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);

@@ -9,6 +9,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.shinelon.demo.admin.mapper.TestMapper;
 
+/***
+ *
+ * @author syq
+ *
+ */
 @Controller
 public class TestController {
     private static final Logger logger = LoggerFactory.getLogger(TestController.class);

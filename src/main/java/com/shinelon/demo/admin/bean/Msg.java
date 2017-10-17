@@ -2,6 +2,11 @@ package com.shinelon.demo.admin.bean;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
+/***
+ *
+ * @author syq
+ *
+ */
 public class Msg {
     private String title;
     private String content;

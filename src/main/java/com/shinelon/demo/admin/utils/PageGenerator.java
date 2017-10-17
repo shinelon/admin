@@ -17,6 +17,11 @@ import org.slf4j.LoggerFactory;
 
 import com.baomidou.mybatisplus.generator.config.ConstVal;
 
+/***
+ *
+ * @author syq
+ *
+ */
 public class PageGenerator {
     private static final Logger logger = LoggerFactory.getLogger(PageGenerator.class);
 

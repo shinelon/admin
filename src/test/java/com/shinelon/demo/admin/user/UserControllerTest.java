@@ -16,6 +16,11 @@ import org.springframework.web.context.WebApplicationContext;
 
 import com.shinelon.demo.admin.AdminApplication;
 
+/***
+ *
+ * @author syq
+ *
+ */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = AdminApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class UserControllerTest {

@@ -2,6 +2,11 @@ package com.shinelon.demo.admin.bean;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
+/***
+ *
+ * @author syq
+ *
+ */
 public class RegisterBean {
     private String username;
     private String password;

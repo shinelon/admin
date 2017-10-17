@@ -4,6 +4,12 @@ import java.util.List;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
+/***
+ *
+ * @author syq
+ *
+ * @param <T>
+ */
 public class PageBean<T> {
     private String order;
     private Integer offset;

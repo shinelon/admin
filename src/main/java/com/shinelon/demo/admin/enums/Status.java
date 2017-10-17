@@ -1,5 +1,10 @@
 package com.shinelon.demo.admin.enums;
 
+/***
+ *
+ * @author syq
+ *
+ */
 public enum Status {
     /***
      * AVAILABLE(1, "有效") UNAVAILABLE(0, "无效");

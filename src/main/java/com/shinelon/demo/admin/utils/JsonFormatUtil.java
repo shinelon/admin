@@ -3,7 +3,8 @@ package com.shinelon.demo.admin.utils;
 import com.alibaba.fastjson.JSONObject;
 
 /**
- * 统一返回json格式，主要用于接口使用 {errorCode:返回code,errorMsg:返回msg,returnData:返回数据}
+ * @author syq 统一返回json格式，主要用于接口使用
+ *         {errorCode:返回code,errorMsg:返回msg,returnData:返回数据}
  */
 
 public class JsonFormatUtil {

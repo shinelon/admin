@@ -11,6 +11,11 @@ import com.shinelon.demo.admin.AdminApplication;
 import com.shinelon.demo.admin.entity.SysUser;
 import com.shinelon.demo.admin.mapper.SysUserMapper;
 
+/***
+ *
+ * @author syq
+ *
+ */
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = AdminApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class UserSelectTest {

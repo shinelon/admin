@@ -10,6 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.shinelon.demo.admin.bean.Msg;
 
+/***
+ *
+ * @author syq
+ *
+ */
 @Controller
 public class LoginController {
     private static final Logger logger = LoggerFactory.getLogger(TestController.class);

@@ -17,6 +17,11 @@ import com.shinelon.demo.admin.entity.SysUser;
 import com.shinelon.demo.admin.service.UserService;
 import com.shinelon.demo.admin.utils.JsonFormatUtil;
 
+/***
+ *
+ * @author syq
+ *
+ */
 @Controller
 @RequestMapping("/user")
 public class UserController {

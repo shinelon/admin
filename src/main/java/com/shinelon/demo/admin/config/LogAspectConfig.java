@@ -20,6 +20,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+/***
+ *
+ * @author syq
+ *
+ */
 @Aspect
 @Order(5)
 @Component

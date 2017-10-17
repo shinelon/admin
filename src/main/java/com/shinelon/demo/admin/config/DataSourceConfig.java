@@ -17,6 +17,11 @@ import com.baomidou.mybatisplus.entity.GlobalConfiguration;
 import com.baomidou.mybatisplus.plugins.PaginationInterceptor;
 import com.baomidou.mybatisplus.spring.MybatisSqlSessionFactoryBean;
 
+/***
+ *
+ * @author syq
+ *
+ */
 @Configuration
 @MapperScan("com.shinelon.demo.admin.mapper*")
 public class DataSourceConfig {

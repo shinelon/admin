@@ -16,6 +16,11 @@ import com.shinelon.demo.admin.entity.SysRole;
 import com.shinelon.demo.admin.entity.SysUser;
 import com.shinelon.demo.admin.mapper.SysUserMapper;
 
+/***
+ *
+ * @author syq
+ *
+ */
 public class CustomUserServiceImpl implements UserDetailsService {
     private static final Logger logger = LoggerFactory.getLogger(CustomUserServiceImpl.class);
 
