@@ -2,9 +2,9 @@ package com.shinelon.demo.admin.encoder;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import com.shinelon.demo.admin.utils.Md5Util;
+import com.shinelon.demo.admin.utils.MD5Util;
 
-public class BcryptPasswordEncoderTest {
+public class BCryptPasswordEncoderTest {
     public static void main(String[] args) {
 
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
@@ -17,7 +17,7 @@ public class BcryptPasswordEncoderTest {
         }
 
         System.out.println("------------华丽的分割线-----------------------");
-        String md5Password = Md5Util.encode("abel");
+        String md5Password = MD5Util.encode("abel");
         System.out.println("Md5Password:  " + md5Password);
         System.out.println("encoder:  " + encoder.encode(md5Password));
         if (encoder.matches(md5Password, "$2a$10$37MXEfzlbtC6QSsRTlRhIOmykMRJtO5mU8Y.yiJBjy1x4WYWFR5gG")) {
